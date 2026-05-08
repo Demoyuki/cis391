@@ -1,10 +1,68 @@
 # CST-391: JavaScript Web Application Development 
 
 - Milestone Project: Bible Verse Searcher
-- Victor Manuel Marrujo Verdugo
+- Author: **Victor Manuel Marrujo Verdugo**
 - College of Humanities and Social Sciences, Grand Canyon University
 - Professor Bobby Estey
 - April 26th, 2026
+
+## Fruit List
+1. Oranges
+2. Apples
+     1. Red
+     2. Yellow
+     3. Green
+3. Bananas
+
+## Tables
+|First Name|Last Name|
+|--|--|
+|Victor|Marrujo|
+|JUan|Perez|
+
+
+```java
+// Java Example
+public class CodeBlock {
+    public static void main(String[] args) {
+        System.out.println("Code Block Example");
+    }
+}
+```
+
+```mermaid
+---
+title: MermaidJS - Class Diagram - Animal example
+---
+classDiagram
+    note "From Duck till Zebra"
+    Animal <|-- Duck
+    note for Duck "can fly\ncan swim\ncan dive\ncan help in debugging"
+    Animal <|-- Fish
+    Animal <|-- Zebra
+    Animal : +int age
+    Animal : +String gender
+    Animal: +isMammal()
+    Animal: +mate()
+    class Duck{
+        +String beakColor
+        +swim()
+        +quack()
+    }
+    class Fish{
+        -int sizeInFeet
+        -canEat()
+    }
+    class Zebra{
+        +bool is_wild
+        +run()
+    }
+```
+
+## Emoji
+[Emoji Cheatsheet](https://github.com/ikatyang/emoji-cheat-sheet)
+
+Cheers! :beers:
 
 # Instructor Feedback
 
