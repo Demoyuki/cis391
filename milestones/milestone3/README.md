@@ -1,4 +1,4 @@
-# CST-391: JavaScript Web Application Development 
+# 👁️‍🗨️ CST-391: JavaScript Web Application Development 
 
 - Milestone Project: Bible Verse Searcher
 - Author: **Victor Manuel Marrujo Verdugo**
