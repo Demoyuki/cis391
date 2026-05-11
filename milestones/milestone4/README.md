@@ -13,8 +13,8 @@
 
 ## Screencast Links
 
-- [Video Part 1 — Angular CRUD Demo](https://www.loom.com/share/REPLACE_WITH_YOUR_LINK)
-- [Video Part 2 — Postman & MySQL Workbench Verification](https://www.loom.com/share/REPLACE_WITH_YOUR_LINK)
+- [Video Part 1 — Powerpoint and Webapp](https://www.loom.com/share/4adb14818c0840c1b7b2a10de31e9b59)
+- [Video Part 2 — Webapp](https://www.loom.com/share/c73ab8bbed1e4e8a8db372ddf3214143)
 
 ---
 

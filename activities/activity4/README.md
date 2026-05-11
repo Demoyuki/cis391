@@ -4,7 +4,7 @@
 - Author: **Victor Manuel Marrujo Verdugo**
 - College of Humanities and Social Sciences, Grand Canyon University
 - Professor Bobby Estey
-- May 3, 2026
+- May 3rd, 2026
 
 ---
 
