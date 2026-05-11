@@ -1,0 +1,13 @@
+<div class="container">
+  <h2>Edit Album</h2>
+
+  <!-- Only show form when album is loaded -->
+  <div *ngIf="album; else loading">
+    <app-create-album [album]="album"></app-create-album>
+  </div>
+
+  <!-- Fallback while loading -->
+  <ng-template #loading>
+    <p>Loading album data...</p>
+  </ng-template>
+</div>

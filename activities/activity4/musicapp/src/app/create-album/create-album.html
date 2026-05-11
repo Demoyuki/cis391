@@ -1,0 +1,49 @@
+<div class="container mt-3">
+  <h2>Create New Album</h2>
+
+  <form (ngSubmit)="onSubmit()" #createForm="ngForm">
+    <div class="form-group mb-2">
+      <label>Title</label>
+      <input type="text" class="form-control" [(ngModel)]="newAlbum.title" name="title" required>
+    </div>
+    <div class="form-group mb-2">
+      <label>Artist</label>
+      <input type="text" class="form-control" [(ngModel)]="newAlbum.artist" name="artist" required>
+    </div>
+    <div class="form-group mb-2">
+      <label>Description</label>
+      <textarea class="form-control" [(ngModel)]="newAlbum.description" name="description" rows="3"></textarea>
+    </div>
+    <div class="form-group mb-2">
+      <label>Year</label>
+      <input type="text" class="form-control" [(ngModel)]="newAlbum.year" name="year">
+    </div>
+    <div class="form-group mb-2">
+      <label>Image URL</label>
+      <input type="text" class="form-control" [(ngModel)]="newAlbum.image" name="image">
+    </div>
+
+    <hr/>
+    <h4>Add Tracks</h4>
+    <div class="form-group mb-2">
+      <label>Track Title</label>
+      <input type="text" class="form-control" [(ngModel)]="newTrack.title" name="trackTitle">
+    </div>
+    <div class="form-group mb-2">
+      <label>Video URL</label>
+      <input type="text" class="form-control" [(ngModel)]="newTrack.video" name="trackVideo">
+    </div>
+    <button type="button" class="btn btn-secondary mb-3" (click)="addTrack()">Add Track</button>
+
+    <ul class="list-group mb-3" *ngIf="newAlbum.tracks.length > 0">
+      <li class="list-group-item" *ngFor="let track of newAlbum.tracks">
+        {{ track.number }}. {{ track.title }}
+      </li>
+    </ul>
+
+    <button type="submit" class="btn btn-success me-2">Create Album</button>
+    <button type="button" class="btn btn-secondary" (click)="onReset()">Reset</button>
+  </form>
+
+  <p class="mt-2 text-success" *ngIf="statusMessage">{{ statusMessage }}</p>
+</div>

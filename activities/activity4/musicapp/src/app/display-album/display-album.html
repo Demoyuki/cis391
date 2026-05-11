@@ -1,0 +1,41 @@
+<div align="center">
+  <div class="card mb-3" style="max-width: 500px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <div style="height:150px; width:150px; overflow:hidden;">
+          <img src="{{ album!.image }}" class="card-img" alt="{{ album!.title }}" width="150px" height="150px">
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ album!.title }}</h5>
+          <p class="card-text">{{ album!.description }}</p>
+          <p class="card-text"><small class="text-muted">{{ album!.year }}</small></p>
+          <table>
+            <tr>
+              <td width="50px" align="center">
+                <a href="#" data-bs-toggle="collapse" data-bs-target="#collapseTracks">Tracks</a>
+              </td>
+              <td width="50px" align="center">
+                <a [routerLink]="['/edit', album!.artist, album!.albumId]">Edit</a>
+              </td>
+              <td width="50px" align="center">
+                <a [routerLink]="['/delete', album!.artist, album!.albumId]">Delete</a>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="collapse" id="collapseTracks" style="margin-left:50px; margin-right:50px;">
+  <div class="card card-body">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let track of album!.tracks">
+        {{ track.number }}. {{ track.title }}
+      </li>
+    </ul>
+  </div>
+</div>
