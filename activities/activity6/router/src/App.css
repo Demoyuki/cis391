@@ -1,0 +1,120 @@
+/* ===== Global ===== */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #f4f6f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  background-color: #1a1a2e !important;
+  padding: 12px 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.navbar-brand {
+  color: #e94560 !important;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.nav-link a,
+.nav-item a {
+  color: #ccc !important;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.nav-link a:hover,
+.nav-item a:hover {
+  color: #e94560 !important;
+}
+
+/* ===== Page Container ===== */
+.page-container {
+  max-width: 700px;
+  margin: 60px auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* ===== Headings ===== */
+h1, h2, h3, h5 {
+  color: #1a1a2e;
+}
+
+/* ===== Friends List ===== */
+.friends-section {
+  max-width: 700px;
+  margin: 20px auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px 40px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.friends-section h5 {
+  margin-bottom: 12px;
+  color: #1a1a2e;
+  font-weight: 600;
+}
+
+.friends-section ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.friends-section ul li a {
+  display: inline-block;
+  padding: 6px 18px;
+  background-color: #1a1a2e;
+  color: #fff;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.friends-section ul li a:hover {
+  background-color: #e94560;
+}
+
+/* ===== Button ===== */
+.btn-login {
+  background-color: #e94560;
+  color: #fff;
+  border: none;
+  padding: 10px 28px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: background 0.2s;
+}
+
+.btn-login:hover {
+  background-color: #c73652;
+}
+
+/* ===== Contact Info ===== */
+.contact-info p {
+  margin: 6px 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* ===== User Greeting ===== */
+.user-greeting {
+  font-size: 1.8rem;
+  color: #e94560;
+  font-weight: 600;
+}

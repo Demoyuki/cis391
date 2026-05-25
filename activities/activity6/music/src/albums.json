@@ -1,0 +1,26 @@
+[
+  {
+    "id": 0,
+    "title": "The Black Parade",
+    "artist": "My Chemical Romance",
+    "description": "The third studio album by My Chemical Romance, released October 23, 2006. A concept album centered on a dying man known as The Patient, blending emo, alternative rock, pop-punk, and glam rock.",
+    "year": 2006,
+    "image": "https://upload.wikimedia.org/wikipedia/en/6/67/The_Black_Parade_Album_Cover.png"
+  },
+  {
+    "id": 1,
+    "title": "Abbey Road",
+    "artist": "The Beatles",
+    "description": "Abbey Road is the eleventh studio album by the English rock band the Beatles, released on 26 September 1969 by Apple Records.",
+    "year": 1969,
+    "image": "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Thriller",
+    "artist": "Michael Jackson",
+    "description": "Thriller is the sixth studio album by Michael Jackson, released on November 30, 1982. It is the best-selling album of all time with estimated sales of 70 million copies worldwide.",
+    "year": 1982,
+    "image": "https://upload.wikimedia.org/wikipedia/en/5/55/Michael_Jackson_-_Thriller.png"
+  }
+]

@@ -4,31 +4,30 @@
 - Author: **Victor Manuel Marrujo Verdugo**
 - College of Humanities and Social Sciences, Grand Canyon University
 - Professor Bobby Estey
-- May 3rd, 2026
+- May 24th, 2026
 
 ## Screencast Links
 
-- [Video Part 1 — Powerpoint and Webapp](https://www.loom.com/share/4adb14818c0840c1b7b2a10de31e9b59)
-- [Video Part 2 — Webapp](https://www.loom.com/share/c73ab8bbed1e4e8a8db372ddf3214143)
+- [Video Part 1 — React CRUD Demo]( )
+- [Video Part 2 — UI Navigation & Effects]()
 
 ---
 
 # Instructor Feedback
 
-## Milestone 3 Instructor Feedback
+## Milestone 4 Instructor Feedback
 
-> "Victor, your submission for this Milestone was very professional and met all requirements, cover page, detailed introduction, links to the screencast, link to the repository, requirements clearly stated, database table definitions, end points, etc. All artifacts were documented and technical explained well."
->
-> — Professor Bobby Estey
+> *WOW!!!!!!!!!!!!!!!!!!!!!!! - OH WOW!!!!!!!!!!!!!!!!!!!! - AMAZING. Your the Markdown / MermaidJS Master - I TOLD YOU SO. Now Spread the Word :-)
+> Victor, I am SO PROUD OF YOU.  This was DETAILED, TECHNICAL, PROFESSIONAL.  Well Done BROTHER, Bobby :-)*
 
 ## Response to Feedback
 
-Milestone 3 received full marks and no corrective changes were required. The following improvements were applied in Milestone 4 building on that foundation:
+Milestone 4 received full marks and no corrective changes were required. The following improvements were applied in Milestone 5 building on that foundation:
 
 - Maintained the same professional document structure, cover page, and writing style noted by the instructor.
-- REST API documentation carried forward unchanged — no API modifications were needed for M4.
-- Angular front-end built to the same standards: typed models, a centralized service layer, and clean route definitions.
-- Design updates table updated to reflect all M4 additions and known issues remaining for M5.
+- REST API documentation carried forward unchanged — no API modifications were needed for M5.
+- React front-end built to the same standards: typed models, a centralized service layer, and clean route definitions.
+- Design updates table updated to reflect all M5 additions and known issues remaining for M6.*
 
 ---
 
@@ -40,7 +39,7 @@ The application follows an N-Layer architecture using a Node.js/Express.js back-
 
 This project aligns with a Christian worldview by providing a tool for Bible study, reflection, and spiritual growth. Users such as pastors, students, and individuals can efficiently navigate scripture and store personal insights.
 
-**Milestone 4** delivers the Angular front-end. The Angular application consumes all 14 REST API endpoints from Milestone 3, implements full CRUD for Bible verses and notes, and provides a Bootstrap 5 NavBar for navigation between pages.
+**Milestone 5** delivers the React front-end. The React application consumes the same 14 REST API endpoints built in Milestone 3, implements full CRUD for Bible verses and notes, and provides a Bootstrap 5 NavBar for navigation. The React implementation mirrors all features from the Angular app but uses React 18, React Router v6, Vite, and Axios instead of Angular's framework primitives.
 
 ---
 
@@ -65,7 +64,7 @@ The following user stories define the full scope of the Bible Verse Searcher. St
 
 # Part 3 – Database Design
 
-*Unchanged from Milestone 3. No schema changes were made in Milestone 4.*
+*Unchanged from Milestone 3. No schema changes were made in Milestones 4 or 5.*
 
 ## 3.1 – bible_books table
 
@@ -97,8 +96,6 @@ The following user stories define the full scope of the Bible Verse Searcher. St
 | updated_at | DATETIME | DEFAULT CURRENT_TIMESTAMP ON UPDATE |
 
 ## 3.4 – ER Diagram
-
-The schema uses three tables: `bible_books`, `bible_verses`, and `verse_notes`. The diagram below shows the entity relationships and the data types used (satisfying the requirement for at least three distinct types).
 
 ```mermaid
 erDiagram
@@ -137,7 +134,7 @@ erDiagram
 
 ## 3.6 – Data Types Summary
 
-- **INT** — all primary and foreign keys, chapter and verse numbers (exact numeric identifiers).
+- **INT** — all primary and foreign keys, chapter and verse numbers.
 - **NVARCHAR(n) / NVARCHAR(MAX)** — book names, testament codes, verse text, note text (Unicode strings).
 - **DATETIME** — note timestamp (point-in-time value, enables sorting and audit trail).
 
@@ -172,9 +169,7 @@ CREATE TABLE verse_notes (
 
 # Part 4 – REST API Design
 
-*Unchanged from Milestone 3. No API modifications were made in Milestone 4.*
-
-The Express.js back-end exposes three resource collections: `/api/verses`, `/api/books`, and `/api/notes`. The API follows REST conventions: plural nouns name resources; URL paths hierarchically refine the resource; HTTP verbs (GET, POST, PUT, DELETE) express intent. The API layer is a façade over service/business-logic classes.
+*Unchanged from Milestone 3. No API modifications were made in Milestones 4 or 5.*
 
 ## 4.1 – Books Endpoints
 
@@ -208,72 +203,10 @@ The Express.js back-end exposes three resource collections: `/api/verses`, `/api
 ## 4.4 – REST Conventions Applied
 
 - **Plural nouns as resources:** `/verses`, `/books`, `/notes` — never `/getVerse` or `/searchBible`.
-- **Hierarchical paths:** `/api/verses/:id/notes` drills from a verse resource into its child notes collection.
-- **HTTP verbs carry intent:** GET retrieves, POST creates, PUT updates, DELETE removes — no action verbs in URLs.
+- **Hierarchical paths:** `/api/verses/:id/notes` drills from a verse into its child notes collection.
+- **HTTP verbs carry intent:** GET retrieves, POST creates, PUT updates, DELETE removes.
 - **Query parameters for search/filter:** `?q=keyword&testament=OT` keeps the base resource path clean.
 - **Consistent status codes:** 200 OK, 201 Created, 204 No Content, 400 Bad Request, 404 Not Found.
-
-## 4.5 – REST API Testing
-
-All 14 endpoints are implemented and tested in Postman. The Postman collection file (`Bible_Verse_Searcher.postman_collection.json`) is included in the API repository.
-
-Base URL: `http://localhost:3000/api`
-
-![Figure 1 — GET /api/books](./images/figure1.png)
-
-**Figure 1:** Postman successfully accessing `/api/books` — returns all books in the database.
-
-![Figure 2 — GET /api/books/:id](./images/figure2.png)
-
-**Figure 2:** Postman successfully accessing `/api/books/:id` — returns a specific book by ID.
-
-![Figure 3 — GET /api/books/:id/chapters](./images/figure3.png)
-
-**Figure 3:** Postman successfully accessing `/api/books/:id/chapters` — returns the chapter count for a specific book.
-
-![Figure 4 — GET /api/verses](./images/figure4.png)
-
-**Figure 4:** Postman successfully accessing `/api/verses` — returns all available verses.
-
-![Figure 5 — GET /api/verses?book=:id&chapter=:n](./images/figure5.png)
-
-**Figure 5:** Postman successfully accessing `/api/verses?book=:id&chapter=:n` — returns all verses within the given book and chapter.
-
-![Figure 6 — GET /api/verses/:id](./images/figure6.png)
-
-**Figure 6:** Postman successfully accessing `/api/verses/:id` — returns a specific verse by ID.
-
-![Figure 7 — POST /api/verses](./images/figure7.png)
-
-**Figure 7:** Postman successfully accessing `POST /api/verses` — adds a new verse to the database.
-
-![Figure 8 — PUT /api/verses/:id](./images/figure8.png)
-
-**Figure 8:** Postman successfully accessing `PUT /api/verses/10` — updates the text of the verse just added.
-
-![Figure 9 — DELETE /api/verses/:id](./images/figure9.png)
-
-**Figure 9:** Postman successfully accessing `DELETE /api/verses/10` — deletes the verse just added.
-
-![Figure 10 — GET /api/verses/1/notes](./images/figure10.png)
-
-**Figure 10:** Postman successfully accessing `/api/verses/1/notes` — returns all notes for verse 1.
-
-![Figure 11 — GET /api/verses/1/notes/1](./images/figure11.png)
-
-**Figure 11:** Postman successfully accessing `/api/verses/1/notes/1` — returns a specific note by ID.
-
-![Figure 12 — POST /api/verses/1/notes](./images/figure12.png)
-
-**Figure 12:** Postman successfully accessing `POST /api/verses/1/notes` — creates a new note for verse 1.
-
-![Figure 13 — PUT /api/verses/:id/notes/:nid](./images/figure13.png)
-
-**Figure 13:** Postman successfully accessing `PUT /api/verses/:id/notes/:nid` — updates the text of the note just added.
-
-![Figure 14 — DELETE /api/verses/:id/notes/:nid](./images/figure14.png)
-
-**Figure 14:** Postman successfully accessing `DELETE /api/verses/:id/notes/:nid` — deletes the note just added.
 
 ---
 
@@ -281,26 +214,24 @@ Base URL: `http://localhost:3000/api`
 
 ## 5.1 – Page Descriptions
 
-The Angular application consists of the following pages:
-
 **Verse List Page**
 - Main landing page of the application
-- Displays all Bible verses with search and testament filter controls
-- Provides navigation to Add Verse, View, Edit, and Delete
+- Displays all Bible verses with keyword search and testament filter
+- Provides navigation to Add Verse, View, Edit, and Delete for each result
 
 **Add Verse Page**
 - Form for creating a new Bible verse
-- Book dropdown (populated from `/api/books`), chapter, verse number, and text fields
+- Book dropdown populated from `/api/books`, chapter, verse number, and text fields
 - Validates required fields before submitting to `POST /api/verses`
 
 **Verse Details Page**
-- Displays the full verse text and metadata (book, chapter, verse, testament)
-- Shows all user-created notes associated with the verse
-- Provides inline forms to add, edit, and delete notes
+- Displays the full verse text and metadata (book, chapter, verse, testament badge)
+- Shows all user-created notes with timestamps
+- Inline forms to add, edit, and delete notes
 
 **Edit Verse Page**
 - Pre-populated form for updating an existing verse
-- Same component as Add Verse, distinguished by the presence of a route `:id` parameter
+- Same `VerseForm` component as Add Verse, driven by the presence of the route `:id` param
 - Submits to `PUT /api/verses/:id`
 
 ## 5.2 – Application Flow Summary
@@ -308,23 +239,23 @@ The Angular application consists of the following pages:
 ```
 Home (/) → Verse List (/verses)
              |
-             +--→ Add Verse (/verses/new)          [Create]
+             +--→ Add Verse (/verses/new)             [Create]
              |
-             +--→ Verse Details (/verses/:id)       [Read]
+             +--→ Verse Details (/verses/:id)          [Read]
              |         |
              |         +--→ Edit Verse (/verses/:id/edit)   [Update]
              |         +--→ Delete Verse (confirm dialog)   [Delete]
              |         +--→ Add / Edit / Delete Notes       [Notes CRUD]
              |
-             +--→ Edit Verse (/verses/:id/edit)     [Update — also reachable from list]
+             +--→ Edit Verse (/verses/:id/edit)        [also reachable from list]
 ```
 
 ## 5.3 – Access and Flow Notes
 
 - The Verse List page is the main entry point of the application.
-- The Bootstrap NavBar provides links to **Verses** (`/verses`) and **Add Verse** (`/verses/new`) from every page.
-- Both Create and Edit use the same `VerseFormComponent`; the route `:id` parameter determines the mode.
-- The Verse Details page acts as the hub for note management — all note CRUD operations happen here.
+- The Bootstrap NavBar provides **Verses** and **Add Verse** links from every page using React Router `NavLink` for active state highlighting.
+- Both Create and Edit share the same `VerseForm` component; the route `:id` parameter determines the mode.
+- The Verse Details page is the hub for note management — all note CRUD operations happen here without page navigation.
 
 ---
 
@@ -332,7 +263,7 @@ Home (/) → Verse List (/verses)
 
 ## 6.1 – Verse List Page (Read All + Search + Delete)
 
-URL: `/verses` | Method: GET
+URL: `/verses`
 
 ```
   ✝ Bible Verse Searcher                    [📖 Verses]  [➕ Add Verse]
@@ -367,7 +298,6 @@ URL: `/verses/new` (Create) | `/verses/:id/edit` (Update)
   Chapter *       [ 3    ]     Verse # *   [ 16   ]
   Text *          [                                                    ]
                   [                                                    ]
-                  [                                                    ]
 
                         [Cancel]          [Add Verse]
 ```
@@ -381,22 +311,21 @@ URL: `/verses/:id`
   ──────────────────────────────────────────────────────────────────────
   ← Back to Verses
 
-  ┌─────────────────────────────────────────────────────┐  [✏️ Edit] [🗑 Delete]
-  │  ✝ John 3:16                                        │
-  ├─────────────────────────────────────────────────────┤
-  │  "For God so loved the world that he gave his       │
-  │   one and only Son, that whoever believes in him    │
-  │   shall not perish but have eternal life."          │
-  │                         — John 3:16  [ NT ]         │
-  └─────────────────────────────────────────────────────┘
+  ┌─────────────────────────────────────────────────┐  [✏️ Edit] [🗑 Delete]
+  │  ✝ John 3:16                                    │
+  ├─────────────────────────────────────────────────┤
+  │  "For God so loved the world that he gave his   │
+  │   one and only Son..."                          │
+  │                       — John 3:16  [ NT ]       │
+  └─────────────────────────────────────────────────┘
 
   📝 Personal Notes (1)
-  ──────────────────────────────────────────────────────────────────────
-  The most famous verse in the Bible — the heart of the Gospel.
-  Apr 27, 2026                                    [Edit]  [Delete]
+  ──────────────────────────────────────────────────
+  The most famous verse in the Bible.
+  Apr 27, 2026                          [Edit]  [Delete]
 
-  ── Add a Note ────────────────────────────────────────
-  [ Write your personal reflection or study note...    ]
+  ── Add a Note ────────────────────────────────────
+  [ Write your personal reflection...              ]
   [ 💾 Save Note ]
 ```
 
@@ -405,8 +334,8 @@ URL: `/verses/:id`
 Activated by clicking [Edit] on a saved note:
 
 ```
-  ── Editing Note ──────────────────────────────────────
-  [ The most famous verse — captures the entire Gospel  ]
+  ── Editing Note ──────────────────────────────────
+  [ The most famous verse — captures the Gospel    ]
 
   [Cancel]      [Save]
 ```
@@ -414,8 +343,6 @@ Activated by clicking [Edit] on a saved note:
 ---
 
 # Part 7 – UML Classes
-
-*The back-end service and model classes are unchanged from Milestone 3. The Angular front-end adds a service layer and component layer on the client side.*
 
 ## 7.1 – Model Layer (back-end, unchanged)
 
@@ -427,7 +354,7 @@ Activated by clicking [Edit] on a saved note:
 | BibleVerse | VerseNum | int | Verse number within chapter |
 | BibleVerse | Text | string | Verse text content |
 | BibleBook | BookId | int | Primary key |
-| BibleBook | BookName | string | Full book name (e.g. Genesis) |
+| BibleBook | BookName | string | Full book name |
 | BibleBook | Testament | string | OT or NT |
 | BibleBook | ChapterCount | int | Total chapters in the book |
 | VerseNote | NoteId | int | Primary key |
@@ -461,7 +388,7 @@ Activated by clicking [Edit] on a saved note:
 
 | Class | Method | Description |
 |-------|--------|-------------|
-| VerseService | searchVerses(term, ot, nt) | Full-text search with testament filters; delegates to DAO |
+| VerseService | searchVerses(term, ot, nt) | Full-text search with testament filters |
 | VerseService | getVerseById(id) | Retrieve a single verse by primary key |
 | VerseService | getVersesByChapter(bookId, ch) | All verses in a specific book/chapter |
 | BookService | getAllBooks() | Returns the full list of 66 Bible books |
@@ -471,43 +398,55 @@ Activated by clicking [Edit] on a saved note:
 | NoteService | updateNote(noteId, text) | Update the text of an existing note |
 | NoteService | deleteNote(noteId) | Permanently delete a note |
 
-## 7.4 – Angular Client Layer (new — Milestone 4)
+## 7.4 – React Client Layer (new — Milestone 5)
 
 ### Components
 
 | Component | Route | Responsibility | CRUD Operation |
 |-----------|-------|---------------|----------------|
-| NavbarComponent | (global) | Bootstrap NavBar with RouterLink / RouterLinkActive | Navigation |
-| VerseListComponent | /verses | Search, filter by testament, browse all, delete | Read (all) + Delete |
-| VerseFormComponent | /verses/new | Form to create a new verse | Create |
-| VerseFormComponent | /verses/:id/edit | Pre-populated form to update a verse | Update |
-| VerseDetailComponent | /verses/:id | Full verse text + Notes CRUD (add/edit/delete) | Read (one) + Notes CRUD |
+| Navbar | (global) | Bootstrap NavBar with NavLink active state | Navigation |
+| VerseList | /verses | Search, filter by testament, browse all, delete | Read (all) + Delete |
+| VerseForm | /verses/new | Form to create a new verse | Create |
+| VerseForm | /verses/:id/edit | Pre-populated form to update a verse | Update |
+| VerseDetail | /verses/:id | Full verse text + Notes CRUD | Read (one) + Notes CRUD |
 
-### VerseService (Angular client)
+### verseService (React client — Axios)
 
-| Method | Maps to REST Endpoint | Purpose |
-|--------|-----------------------|---------|
-| getBooks() | GET /api/books | Populate book dropdown in VerseFormComponent |
-| searchVerses(q, testament) | GET /api/verses?q=&testament= | Search + filter on VerseListComponent |
-| getVersesByReference(bookId, ch) | GET /api/verses?book=&chapter= | Reference browse |
-| getVerseById(id) | GET /api/verses/:id | Load single verse in VerseDetail + VerseForm (edit) |
-| createVerse(dto) | POST /api/verses | Save new verse from VerseFormComponent |
-| updateVerse(id, dto) | PUT /api/verses/:id | Save edits from VerseFormComponent |
+| Function | Maps to REST Endpoint | Purpose |
+|----------|-----------------------|---------|
+| getBooks() | GET /api/books | Populate book dropdown in VerseForm |
+| searchVerses(q, testament) | GET /api/verses?q=&testament= | Search + filter on VerseList |
+| getVerseById(id) | GET /api/verses/:id | Load single verse in VerseDetail + VerseForm |
+| createVerse(dto) | POST /api/verses | Save new verse from VerseForm |
+| updateVerse(id, dto) | PUT /api/verses/:id | Save edits from VerseForm |
 | deleteVerse(id) | DELETE /api/verses/:id | Delete from VerseList or VerseDetail |
-| getNotes(verseId) | GET /api/verses/:id/notes | Load notes in VerseDetailComponent |
-| createNote(verseId, dto) | POST /api/verses/:id/notes | Add note in VerseDetailComponent |
-| updateNote(verseId, noteId, dto) | PUT /api/verses/:id/notes/:nid | Inline edit note |
+| getNotes(verseId) | GET /api/verses/:id/notes | Load notes in VerseDetail |
+| createNote(verseId, text) | POST /api/verses/:id/notes | Add note in VerseDetail |
+| updateNote(verseId, noteId, text) | PUT /api/verses/:id/notes/:nid | Inline edit note |
 | deleteNote(verseId, noteId) | DELETE /api/verses/:id/notes/:nid | Remove note |
 
-### Angular Routes
+### React Routes
 
 | Path | Component | Description |
 |------|-----------|-------------|
 | / | (redirect) | Redirects to /verses |
-| /verses | VerseListComponent | Read all + search + delete |
-| /verses/new | VerseFormComponent | Create |
-| /verses/:id | VerseDetailComponent | Read one + notes CRUD |
-| /verses/:id/edit | VerseFormComponent | Update (pre-populated) |
+| /verses | VerseList | Read all + search + delete |
+| /verses/new | VerseForm | Create |
+| /verses/:id | VerseDetail | Read one + notes CRUD |
+| /verses/:id/edit | VerseForm | Update (pre-populated) |
+
+### Angular vs React Comparison
+
+| Concern | Angular (M4) | React (M5) |
+|---------|-------------|------------|
+| Language | TypeScript | TypeScript |
+| Routing | @angular/router (lazy loadComponent) | React Router v6 (BrowserRouter + Routes) |
+| HTTP | HttpClient (provideHttpClient) | Axios |
+| State | Component properties + ngOnInit | useState + useEffect hooks |
+| Templates | HTML templates with directives (*ngFor, *ngIf) | JSX with inline expressions |
+| Styles | Bootstrap 5 via CDN | Bootstrap 5 via CDN + npm |
+| Build tool | Angular CLI (webpack) | Vite |
+| Dev port | 4200 | 5173 |
 
 ---
 
@@ -515,59 +454,54 @@ Activated by clicking [Edit] on a saved note:
 
 | Risk | Likelihood | Impact | Mitigation |
 |------|-----------|--------|------------|
-| Database performance on 31,000+ verse dataset (slow queries, missing indexes) | Medium | High | Add full-text indexes on `bible_verses.text`; test queries with EXPLAIN before M5. |
-| Full-text search accuracy (partial match, case sensitivity issues) | Medium | High | Use SQL LIKE with LOWER(); evaluate full-text search index for production. |
-| Scalability — no authentication or multi-user support yet | Low | Medium | Deferred to post-MVP; API is stateless and can be extended with JWT auth later. |
-| Data integrity — orphaned notes if verse records are deleted | Low | High | CASCADE DELETE on `verse_notes` FK enforced at DB level. |
-| UI consistency between Angular and React implementations | Medium | Medium | Both UIs consume the identical REST API; shared integration test suite. |
-| React learning curve slowing M5 development | High | Medium | Complete React activity assignments first; reuse same service patterns from Angular. |
-| CORS misconfiguration blocking front-end API calls | Medium | High | `cors()` middleware applied globally in Express; validated in M3 before Angular work began. |
-| Scope creep beyond High-priority user stories | Medium | Medium | Lock MVP to US-01 through US-09; Medium/Low stories deferred unless time permits. |
+| Database performance on 31,000+ verse dataset | Medium | High | Full-text indexes on `bible_verses.text`; LIKE search used for compatibility. |
+| Full-text search accuracy (partial match, case sensitivity) | Medium | High | LOWER() + LIKE in API; FULLTEXT MATCH AGAINST planned as future improvement. |
+| Scalability — no authentication or multi-user support | Low | Medium | Deferred; API is stateless and can be extended with JWT auth post-MVP. |
+| Data integrity — orphaned notes on verse delete | Low | High | CASCADE DELETE on `verse_notes` FK enforced at DB level. |
+| UI consistency between Angular and React | Low | Medium | Both UIs consume the identical REST API; feature parity confirmed in M5. |
+| CORS misconfiguration | Low | High | `cors()` middleware validated in M3; no issues encountered in M4 or M5. |
+| Scope creep beyond High-priority user stories | Low | Medium | MVP locked to US-01–US-09; Medium stories deferred. |
 
 ---
 
 # Part 9 – Design Updates & Known Issues
 
-The table below summarizes all changes from Milestone 3 to Milestone 4. Items marked **TO DO** are known gaps planned for Milestone 5 (React).
+The table below summarizes all changes from Milestone 4 to Milestone 5. Items marked **TO DO** are planned for Milestone 6.
 
-| # | Area | M3 State | M4 Implementation | Status |
+| # | Area | M4 State | M5 Implementation | Status |
 |---|------|----------|-------------------|--------|
-| 1 | Angular application | Not yet built | Full Angular 17 SPA with lazy-loaded routing | Complete |
-| 2 | Bootstrap NavBar | Wireframe only | NavbarComponent with RouterLink + RouterLinkActive active state | Complete |
-| 3 | Verse List — Read all | Wireframe only | VerseListComponent with keyword search + testament filter | Complete |
-| 4 | Add Verse — Create | Wireframe only | VerseFormComponent with book dropdown, validation, POST to API | Complete |
-| 5 | View Verse — Read one | Wireframe only | VerseDetailComponent with full text, badges, and metadata | Complete |
-| 6 | Edit Verse — Update | Wireframe only | Shared VerseFormComponent pre-populated via route `:id` | Complete |
-| 7 | Delete Verse | Wireframe only | Confirm dialog; list updates reactively after DELETE | Complete |
-| 8 | Notes CRUD | Wireframe only | Add / inline-edit / delete notes on VerseDetailComponent | Complete |
-| 9 | Angular routing | Designed | Lazy-loaded routes: `/verses`, `/verses/new`, `/verses/:id`, `/verses/:id/edit` | Complete |
-| 10 | HTTP integration | Assumed | VerseService using HttpClient; all 14 REST endpoints consumed | Complete |
-| 11 | Pagination | TO DO from M3 | Still not implemented — client renders all results | TO DO — M5 |
-| 12 | Input validation | TO DO from M3 | Required-field presence checks only; no Angular reactive form validators | TO DO — M5 |
-| 13 | FULLTEXT search at runtime | TO DO from M3 | Schema has FULLTEXT KEY; API still uses LIKE at runtime | TO DO — M5 |
-| 14 | Authentication / security | Out of scope | Still anonymous; no auth planned until post-MVP | Per spec |
-| 15 | Unit tests | Not specified | No Jasmine/Karma tests written | TO DO — M6 |
+| 1 | React application | Not yet built | Full React 18 SPA with React Router v6 | Complete |
+| 2 | Bootstrap NavBar | Angular RouterLinkActive | React Router NavLink with active state | Complete |
+| 3 | Verse List — Read all | Angular VerseListComponent | React VerseList with useState + useEffect | Complete |
+| 4 | Add Verse — Create | Angular VerseFormComponent | React VerseForm (shared for create + edit) | Complete |
+| 5 | View Verse — Read one | Angular VerseDetailComponent | React VerseDetail | Complete |
+| 6 | Edit Verse — Update | Angular shared VerseFormComponent | React shared VerseForm via useParams | Complete |
+| 7 | Delete Verse | Angular confirm + DELETE | React confirm + DELETE; list updates via setVerses | Complete |
+| 8 | Notes CRUD | Angular inline edit | React inline edit with editingId state | Complete |
+| 9 | HTTP client | Angular HttpClient | Axios with async/await | Complete |
+| 10 | Build tool | Angular CLI (webpack) | Vite (faster dev server, instant HMR) | Complete |
+| 11 | Pagination | TO DO from M4 | Still not implemented | TO DO — M6 |
+| 12 | Input validation | TO DO from M4 | Required-field presence checks only | TO DO — M6 |
+| 13 | FULLTEXT search at runtime | TO DO from M4 | Schema has FULLTEXT KEY; API uses LIKE | TO DO — M6 |
+| 14 | Authentication / security | Out of scope | Still anonymous | Per spec |
+| 15 | Unit tests | TO DO from M4 | No Jest/Vitest tests written | TO DO — M6 |
 
 ---
 
-## Angular Application Screenshots
+## React Application Screenshots
 
-![Figure 15 — Verse List page - Api Error](./images/figure15.png)
+![Figure 15 — Verse List page](./images/figure15.png)
 
-![Figure 16 — Verse List page - Api loaded](./images/figure16.png)
+**Figure 15:** The React Verse List page showing all verses with search bar, testament filter, and View / Edit / Delete controls.
 
-**Figures 15 and 16:** The Angular Verse List page before and after starting the bible-api, showing none, and then all verses with search bar, testament filter, and View / Edit / Delete controls.
+![Figure 16 — Add Verse form](./images/figure16.png)
 
-![Figure 17 — Verse Details page 1](./images/figure17.png)
+**Figure 16:** The Add Verse form with book dropdown populated from `/api/books`, chapter, verse number, and text fields.
 
-![Figure 18 — Verse Details page 2](./images/figure18.png)
+![Figure 17 — Verse Details page](./images/figure17.png)
 
-**Figures 17 and 18:** The Add Verse form showing the book dropdown (populated from `/api/books`), chapter, verse number, and text fields.
+**Figure 17:** The Verse Details page showing full verse text, metadata badges, and the Notes section with add/edit/delete controls.
 
-![Figure 19 — View Verse form](./images/figure19.png)
+![Figure 18 — Edit Verse form](./images/figure18.png)
 
-**Figure 19:** The Verse Details page showing full verse text, metadata badges, and the Notes section with add/edit/delete controls.
-
-![Figure 20 — Edit Verse form](./images/figure20.png)
-
-**Figure 20:** The Edit Verse form pre-populated with existing verse data. It uses the same VerseFormComponent used for Create, driven by the route `:id` parameter.
+**Figure 18:** The Edit Verse form pre-populated with existing verse data via `useParams`.
