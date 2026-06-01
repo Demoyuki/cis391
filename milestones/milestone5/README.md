@@ -8,8 +8,8 @@
 
 ## Screencast Links
 
-- [Video Part 1 — React CRUD Demo]( )
-- [Video Part 2 — UI Navigation & Effects]()
+- [Video Part 1 — Power Point Walkthrough]( https://www.loom.com/share/895cfd903f1940b89980b398b58f1418)
+- [Video Part 2 — UI Navigation & Effects](https://www.loom.com/share/9dab6d463e1441e9b6d828cff23f2332)
 
 ---
 
@@ -490,18 +490,18 @@ The table below summarizes all changes from Milestone 4 to Milestone 5. Items ma
 
 ## React Application Screenshots
 
-![Figure 15 — Verse List page](./images/figure15.png)
+![Figure 1 — Verse List page](./images/figure1.png)
 
-**Figure 15:** The React Verse List page showing all verses with search bar, testament filter, and View / Edit / Delete controls.
+**Figure 1:** The React Verse List page showing all verses with search bar, testament filter, and View / Edit / Delete controls.
 
-![Figure 16 — Add Verse form](./images/figure16.png)
+![Figure 2 — Add Verse form](./images/figure2.png)
 
-**Figure 16:** The Add Verse form with book dropdown populated from `/api/books`, chapter, verse number, and text fields.
+**Figure 2:** The Add Verse form with book dropdown populated from `/api/books`, chapter, verse number, and text fields.
 
-![Figure 17 — Verse Details page](./images/figure17.png)
+![Figure 3 — Verse Details page](./images/figure3.png)
 
-**Figure 17:** The Verse Details page showing full verse text, metadata badges, and the Notes section with add/edit/delete controls.
+**Figure 3:** The Verse Details page showing full verse text, metadata badges, and the Notes section with add/edit/delete controls.
 
-![Figure 18 — Edit Verse form](./images/figure18.png)
+![Figure 4 — Edit Verse form](./images/figure4.png)
 
-**Figure 18:** The Edit Verse form pre-populated with existing verse data via `useParams`.
+**Figure 4:** The Edit Verse form pre-populated with existing verse data via `useParams`.
